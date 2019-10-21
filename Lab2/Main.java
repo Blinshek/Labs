@@ -34,8 +34,8 @@ public class Main {
         pok_PorygonZ pPorZ = new pok_PorygonZ("PorZ", 40, moves);
         //------------------------------------------------------------
 
-        Pokemon[] Ally = {pGir};//, pCar, pPor};
-        Pokemon[] Foe = {pShar};//, pPor2, pPorZ};
+        Pokemon[] Ally = {pGir, pCar, pPor};
+        Pokemon[] Foe = {pShar, pPor2, pPorZ};
         startBattle(Ally, Foe);
     }
 

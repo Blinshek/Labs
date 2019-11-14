@@ -21,3 +21,27 @@ class move_Special extends SpecialMove {
         return descriptuion;
     }
 }
+
+class move_IceBeam extends move_Special {
+    public move_IceBeam(Type type, double power, double accuracity, String moveName) {
+        super(type, power, accuracity, moveName);
+    }
+
+    @Override
+    protected void applyOppEffects(Pokemon pokemon) {
+        if (0.1 > Math.random())
+            Effect.freeze(pokemon);
+    }
+}
+
+class move_Thunder extends move_Special {
+    public move_Thunder(Type type, double power, double accuracity, String moveName) {
+        super(type, power, accuracity, moveName);
+    }
+
+    @Override
+    protected void applyOppEffects(Pokemon pokemon) {
+        if (0.3 > Math.random())
+            Effect.paralyze(pokemon);
+    }
+}

@@ -7,7 +7,7 @@ public class Color {
 
     // Pokemon types colors
     protected static final String tNORMAL = ("\u001b[38;5;255m");
-    //protected static final String tNORMAL = ("\u001b[38;5;16m");
+    //protected static final String tNORMAL = ("\u001b[38;5;16m"); //Для скрина
     protected static final String tFIRE = ("\u001b[38;5;202m");
     protected static final String tWATER = ("\u001b[38;5;27m");
     protected static final String tELECTRIC = ("\u001b[38;5;11m");

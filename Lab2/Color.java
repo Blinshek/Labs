@@ -29,62 +29,62 @@ public class Color {
     public Color() {
     }
 
-    public static String Colorize(String moveName, Type type) {
+    public static String Colorize(String str, Type type) {
         String moveDescription = "";
         switch (type) {
             case NORMAL:
-                moveDescription = tNORMAL + moveName + RESET;
+                moveDescription = tNORMAL + str + RESET;
                 break;
             case FIRE:
-                moveDescription = tFIRE + moveName + RESET;
+                moveDescription = tFIRE + str + RESET;
                 break;
             case WATER:
-                moveDescription = tWATER + moveName + RESET;
+                moveDescription = tWATER + str + RESET;
                 break;
             case ELECTRIC:
-                moveDescription = tELECTRIC + moveName + RESET;
+                moveDescription = tELECTRIC + str + RESET;
                 break;
             case GRASS:
-                moveDescription = tGRASS + moveName + RESET;
+                moveDescription = tGRASS + str + RESET;
                 break;
             case ICE:
-                moveDescription = tICE + moveName + RESET;
+                moveDescription = tICE + str + RESET;
                 break;
             case FIGHTING:
-                moveDescription = tFIGHTING + moveName + RESET;
+                moveDescription = tFIGHTING + str + RESET;
                 break;
             case POISON:
-                moveDescription = tPOISON + moveName + RESET;
+                moveDescription = tPOISON + str + RESET;
                 break;
             case GROUND:
-                moveDescription = tGROUND + moveName + RESET;
+                moveDescription = tGROUND + str + RESET;
                 break;
             case FLYING:
-                moveDescription = tFLYING + moveName + RESET;
+                moveDescription = tFLYING + str + RESET;
                 break;
             case PSYCHIC:
-                moveDescription = tPSYCHIC + moveName + RESET;
+                moveDescription = tPSYCHIC + str + RESET;
                 break;
             case BUG:
-                moveDescription = tBUG + moveName + RESET;
+                moveDescription = tBUG + str + RESET;
                 break;
             case ROCK:
-                moveDescription = tROCK + moveName + RESET;
+                moveDescription = tROCK + str + RESET;
                 break;
             case GHOST:
-                moveDescription = tGHOST + moveName + RESET;
+                moveDescription = tGHOST + str + RESET;
                 break;
             case DRAGON:
-                moveDescription = tDRAGON + moveName + RESET;
+                moveDescription = tDRAGON + str + RESET;
                 break;
             case DARK:
-                moveDescription = tDARK + moveName + RESET;
+                moveDescription = tDARK + str + RESET;
                 break;
             case STEEL:
-                moveDescription = tSTEEL + moveName + RESET;
+                moveDescription = tSTEEL + str + RESET;
                 break;
             case FAIRY:
-                moveDescription = tFAIRY + moveName + RESET;
+                moveDescription = tFAIRY + str + RESET;
                 break;
         }
         return moveDescription;

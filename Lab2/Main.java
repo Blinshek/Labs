@@ -6,11 +6,6 @@ import ru.ifmo.se.pokemon.*;
 
 //import java.awt.dnd.DragGestureEvent;
 
-import javax.swing.*;
-import javax.swing.text.TabExpander;
-import javax.swing.text.TextAction;
-import java.nio.charset.CoderResult;
-import java.util.Arrays;
 import java.util.Scanner;
 
 import static ru.ifmo.se.pokemon.Type.*;
@@ -44,7 +39,7 @@ public class Main {
         pok_Porygon2 pPor2 = new pok_Porygon2("Porygon 2", 30, moves);
         pok_PorygonZ pPorZ = new pok_PorygonZ("Porygon Z", 40, moves);
 
-        MyPokemons[] poks = {pGir, pCar, pShar, pPor, pPor2, pPorZ};
+        MyPokemon[] poks = {pGir, pCar, pShar, pPor, pPor2, pPorZ};
         //MyPokemons[] poks = {pGir, pCar, pShar, pPor, pPor2, pPorZ, pGir, pCar, pShar, pPor, pPor2, pPorZ, pGir, pCar, pShar, pPor};
         //------------------------------------------------------------
 
@@ -53,7 +48,7 @@ public class Main {
     }
 
     //Повторяющийся бой
-    private static void StartRepeatedBattle(MyPokemons[] poks) {
+    private static void StartRepeatedBattle(MyPokemon[] poks) {
         boolean repeat = false;
         do {
             PrintTable(poks);
@@ -70,9 +65,9 @@ public class Main {
     }
 
     //Рисует омега таблицу
-    private static void PrintTable(MyPokemons[] poks) {
+    private static void PrintTable(MyPokemon[] poks) {
         int maxNameLen = 0, maxTypeLen = 0;
-        for (MyPokemons p : poks) {
+        for (MyPokemon p : poks) {
             int TypeLen = 0;
             if (p.getName().length() > maxNameLen)
                 maxNameLen = p.getName().length();
@@ -107,7 +102,7 @@ public class Main {
                     table[i][j] = "+";
 
         int cnt = 1;
-        for (MyPokemons pok : poks) {
+        for (MyPokemon pok : poks) {
             boolean cntChanged = false;
             int symvcnt = 0; //кол-во видимых символов
             Type types[] = pok.getTypes();
@@ -152,7 +147,7 @@ public class Main {
     }
 
     //Создание команд по вводу пользователя
-    private static void setTeam(MyPokemons[] poks) {
+    private static void setTeam(MyPokemon[] poks) {
         Battle b = new Battle();
         Scanner in = new Scanner(System.in);
         int ERROR;
@@ -173,11 +168,10 @@ public class Main {
                 int[] pokIntInds = new int[pokStrInds.length];
 
                 int maxLen;
-                if (poks.length > 9) {
+                if (poks.length > 9)
                     maxLen = poks.length + poks.length - 9;
-                } else {
+                else
                     maxLen = poks.length;
-                }
 
                 if ((pokStrInds.length > 0) & (pokStrInds.length < maxLen)) {
                     Team = new Pokemon[pokStrInds.length]; //создаём массив для покемонов
@@ -199,25 +193,24 @@ public class Main {
                         for (int k = 0; k < pokStrInds.length; k++)
                             pokIntInds[k] = Integer.parseInt(pokStrInds[k]);
 
-                        for (int CurrentIndex : pokIntInds) {
+                        for (int CurrentIndex : pokIntInds)
                             if (UsedPoksId[CurrentIndex - 1] != -1)
                                 AllIndsUniq = true;
                             else {
                                 AllIndsUniq = false;
                                 break;
                             }
-                        }
                     } else
                         ERROR = 2;
 
                     //Формирование команд и пометка покемонов как использованных
-                    if (AllIndsUniq) {
+                    if (AllIndsUniq)
                         for (int i = 0; i < pokIntInds.length; i++) {
                             int currentPokId = pokIntInds[i] - 1; //Индексы начиная от 0
                             UsedPoksId[currentPokId] = -1;
                             Team[i] = poks[currentPokId];
                         }
-                    } else if (ERROR == -1)
+                    else if (ERROR == -1)
                         ERROR = 3;
 
                 } else {

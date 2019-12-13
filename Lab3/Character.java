@@ -105,7 +105,7 @@ abstract class Character implements ActionsWithItems {
     void removeItem(Item itemThatMustBeKilled, int count) {
         int index = getItemIndex(itemThatMustBeKilled);
         int trueCount = Math.min(count, ItemCount[index]);
-        ItemCount[index]-= trueCount;
+        ItemCount[index] -= trueCount;
         if (ItemCount[index] == 0)
             Items[index] = null;
         //System.out.println(this + " выбрасывает " + itemThatMustBeKilled + " x" + trueCount);
@@ -152,5 +152,17 @@ abstract class Character implements ActionsWithItems {
     @Override
     public String toString() {
         return getName();
+    }
+
+    @Override
+    public int hashCode() {
+        return (name.hashCode() + sex.hashCode() + age) * 31;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this.getClass() == obj.getClass())
+            return super.hashCode() == obj.hashCode();
+        return false;
     }
 }

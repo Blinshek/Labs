@@ -15,4 +15,9 @@ abstract class Item {
         else
             return false;
     }
+
+    @Override
+    public int hashCode() {
+        return id;
+    }
 }

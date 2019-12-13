@@ -9,14 +9,6 @@ class Costume extends CraftableItem{
     public String getCondition() {
         return condition.toString();
     }
-    /*
-    public Costume () {
-        Costume(0, Size.MEDIUM, Condition.NEW);
-        neededSewLvl = 0;
-        size = Size.MEDIUM;
-        condition = Condition.NEW;
-    }
-     */
 
     public Costume (String title, int neededSewLvl,  Enum size, Enum condition) {
         super(neededSewLvl, size.hashCode() + condition.hashCode());
@@ -29,10 +21,5 @@ class Costume extends CraftableItem{
     @Override
     public String toString() {
         return title;
-    }
-
-    @Override
-    public int hashCode() {
-        return size.hashCode() + condition.hashCode();
     }
 }

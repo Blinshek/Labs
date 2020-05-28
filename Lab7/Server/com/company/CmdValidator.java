@@ -3,14 +3,14 @@ package com.company;
 import Commands.*;
 import Exceptions.CmdValidationException;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public final class CmdValidator {
 
-    private static LinkedHashMap<Integer, Movie> collection;
+    private static ConcurrentHashMap<Integer, Movie> collection;
 
-    public static void setMap(LinkedHashMap<Integer, Movie> films) {
+    public static void setMap(ConcurrentHashMap<Integer, Movie> films) {
         collection = films;
     }
 

@@ -10,9 +10,10 @@ import java.nio.channels.SocketChannel;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class AnswerTask implements Runnable {
-    public static LinkedHashMap<Client, ArrayList<String>> answers = new LinkedHashMap<>();
+    public static ConcurrentHashMap<Client, ArrayList<String>> answers = new ConcurrentHashMap<>();
     @Override
     public void run() {
         while(true){

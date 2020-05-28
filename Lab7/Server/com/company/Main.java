@@ -11,13 +11,12 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.*;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.*;
 
 public class Main {
-    private static LinkedHashMap<Integer, Movie> films = new LinkedHashMap<>();
+    private static ConcurrentHashMap<Integer, Movie> films = new ConcurrentHashMap<>();
 
-    public static ArrayList<Client> clients = new ArrayList<>();
+    public static CopyOnWriteArrayList<Client> clients = new CopyOnWriteArrayList<>();
 
     private static DataBase database = new DataBase("jdbc:postgresql://pg:5432/studs", "s285702",
             "cmq337", "org.postgresql.Driver");
@@ -28,7 +27,7 @@ public class Main {
     private static ServerSocketChannel serverSocketChan;
 
     public static void main(String[] args) throws InterruptedException, SQLException {
-        ThreadPoolExecutor threadPoolExecutor = (ThreadPoolExecutor) Executors.newCachedThreadPool();
+        ThreadPoolExecutor threadPoolExecutor = (ThreadPoolExecutor) Executors.newFixedThreadPool(30); //наверно хватит
 
         boolean isStarted = false;
         do {
@@ -85,6 +84,7 @@ public class Main {
             System.out.println("Останавливаем сервер..");
             System.exit(0);
         }
+        //new ForkJoinPool().invoke(new ExecuteTask());
         new ExecuteTask().fork();
         new Thread(new AnswerTask()).start();
     }

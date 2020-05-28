@@ -13,18 +13,19 @@ import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 import static com.company.Main.*;
 import static com.company.Main.tryParseLong;
 
 public final class ScriptParser {
-    private static LinkedHashMap<Integer, Movie> collection;
+    private static ConcurrentHashMap<Integer, Movie> collection;
 
     private static List<String> lines = null;
     private static int lineNum = 0;
     private static ArrayList<String> scriptHistory = new ArrayList<>();
 
-    public static void setMap(LinkedHashMap<Integer, Movie> movieMap) {
+    public static void setMap(ConcurrentHashMap<Integer, Movie> movieMap) {
         collection = movieMap;
     }
 

@@ -14,15 +14,15 @@ import java.security.*;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public final class Receiver {
-    private static LinkedHashMap<Integer, Movie> collection;
+    private static ConcurrentHashMap<Integer, Movie> collection;
     private static DataBase db;
     private static Statement statement;
     public static ArrayList<String> output = new ArrayList<>();
 
-
-    public static void setMap(LinkedHashMap<Integer, Movie> films) {
+    public static void setMap(ConcurrentHashMap<Integer, Movie> films) {
         collection = films;
     }
 
@@ -40,7 +40,7 @@ public final class Receiver {
 
     private static void sortCollection() {
         if (collection.size() > 1) {
-            LinkedHashMap<Integer, Movie> result2 = new LinkedHashMap<>();
+            ConcurrentHashMap<Integer, Movie> result2 = new ConcurrentHashMap<>();
             collection.entrySet().stream()
                     .sorted(Map.Entry.<Integer, Movie>comparingByValue().reversed())
                     .forEachOrdered(x -> result2.put(x.getKey(), x.getValue()));

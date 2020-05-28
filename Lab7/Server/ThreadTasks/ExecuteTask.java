@@ -10,10 +10,11 @@ import com.company.Receiver;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.RecursiveAction;
 
 public class ExecuteTask extends RecursiveAction {
-    public static LinkedHashMap<Client, ArrayList<Command>> requestMap = new LinkedHashMap<>();
+    public static ConcurrentHashMap<Client, ArrayList<Command>> requestMap = new ConcurrentHashMap<>();
 
     public static void addTask(Client owner, Command cmd) {
         if (owner != null && cmd != null) {
